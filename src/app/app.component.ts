@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SpaceshipsDataService } from './spaceships-data.service';
+import { SpaceshipsDataService } from './services/spaceships-data.service';
 
 @Component({
   selector: 'app-root',
