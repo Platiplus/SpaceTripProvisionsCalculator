@@ -2,6 +2,9 @@
 Esse projeto apresenta uma solução para o problema de cálculo de provisões para viagens espaciais.
 A distância da viagem pretendida em MGLT é inserida na aplicação, que por sua vez, retorna a quantidade de paradas para reabastecer provisões em cada nave existente no universo de Star Wars, segundo a API aberta `https://swapi.co`.
 
+## DEMO
+
+[Demo](https://spt-provisions-calculator.herokuapp.com/)
 
 ## Servidor de desenvolvimento
 
