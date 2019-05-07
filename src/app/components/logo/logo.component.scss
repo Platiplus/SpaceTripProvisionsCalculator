@@ -1,0 +1,36 @@
+@import '../../../assets/styles/_variables';
+
+.logo {
+    width: 255px;
+    height: 99px;
+    object-fit: contain;
+  }
+  
+.default-text {
+    padding: 25px;
+    width: 500px;
+    height: 38px;
+    font-family: $font-family;
+    font-size: 14px;
+    text-align: center;
+    color: #ffffff;
+    margin: auto;
+}
+
+@media only screen and (max-width: 1024px) {
+    .logo {
+      width: auto!important;
+      height: 99px;
+      object-fit: contain;
+    }
+  
+    .default-text {
+      width: auto!important;
+      height: auto!important;
+      padding: 25px;
+      font-family: $font-family;
+      font-size: 14px;
+      text-align: center;
+      color: #ffffff;
+    }
+}

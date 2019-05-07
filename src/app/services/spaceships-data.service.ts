@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import axios from 'axios';
+import { HttpClient } from '@angular/common/http';
+import { StarshipResponse } from '../model/StarshipResponse.model'
+import { Starship } from '../model/Starship.model'
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,15 +15,16 @@ export class SpaceshipsDataService {
   WEEK = 7 * this.HOURS;
   DAY = 1 * this.HOURS;
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   getNumberOfStopsToGetProvisions(distance){
     return new Promise((resolve, reject) => {
-      this.getStarships('https://swapi.co/api/starships', [], resolve, reject);
+      this.getStarships(environment.api_url, [], resolve, reject);
     })
       .then(response => {
+        let ships: Starship[] = [].concat(response);
         let spaceships = [];
-        response.forEach(element => {
+        ships.forEach(element => {
           spaceships.push(
             {
               name: element.name,
@@ -34,19 +38,17 @@ export class SpaceshipsDataService {
   }
 
   getStarships = (url, starships, resolve, reject) => {
-    axios.get(url)
-      .then(response => {
-        const starshipsCollection = starships.concat(response.data.results);
-        if (response.data.next !== null) {
-          this.getStarships(response.data.next, starshipsCollection, resolve, reject);
+    this.http.get<StarshipResponse>(url)
+      .subscribe(response => {
+        const starshipsCollection = starships.concat(response.results);
+        if (response.next !== null) {
+          this.getStarships(response.next, starshipsCollection, resolve, reject);
         } else {
           resolve(starshipsCollection);
         }
-      })
-      .catch(error => {
-        console.log(error);
+      }, error => {
         reject('There is something wrong with our nerds, maybe one of them fell down while retrieving the data!');
-      })
+      });
     }
 
   private getNumberOfStops(distance, element) {

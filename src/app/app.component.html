@@ -1,23 +1,11 @@
-<h1>STAR WARS TRAVEL GUIDE</h1>
-<h3>Enter the distance to your destination in MGLT and get valuable information about how many stops you will have to do to get provisions in every starship there is!</h3>
-<div class="container__item">
-    <input type="number" [(ngModel)]="distance" class="form__field" placeholder="Travel Distance" />
-    <button type="button" (click)="getSpaceshipsAndPopulateCards(distance)" class="btn btn--primary btn--inside uppercase">Calculate!</button>
-</div> 
+<section [ngClass] = "{'aligner_before_search': !searched, 'aligner_after_search': searched  }">
+  <div class="aligner-item">
+    <stp-logo></stp-logo>
+    <stp-search (onSearch)="spaceships = $event; searched = true"></stp-search>
+  </div>
+</section>
+
 <section class="card-container">
-  <article *ngFor="let spaceship of spaceships" class="c-card">
-    <div class="c-card__body">
-      <h2 class="c-card__title">
-        Name: {{spaceship.name}}
-      </h2>
-      <p class="c-card__subtitle">
-        Model: {{spaceship.model}}
-      </p>
-      
-      <p class="c-card__intro">
-        stops: {{spaceship.stops}} 
-      </p>
-      
-    </div>
-  </article>
+  <stp-card *ngFor="let spaceship of spaceships" [spaceship]="spaceship">
+  </stp-card>
 </section>
