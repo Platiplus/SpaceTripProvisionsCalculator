@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SpaceshipsDataService } from './spaceships-data.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'spt-provisions-calculator';
+  constructor(private service: SpaceshipsDataService) {}
+
+  title = 'Space Trip Provisions Calculator';
+  distance;
+  spaceships = [];
+
+  getSpaceshipsAndPopulateCards(distance){
+    this.service.getNumberOfStopsToGetProvisions(distance).then((stopsPerShip) => {
+      this.spaceships = stopsPerShip;
+    })
+  }
 }

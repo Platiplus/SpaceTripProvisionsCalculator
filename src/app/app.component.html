@@ -1,22 +1,23 @@
 <h1>STAR WARS TRAVEL GUIDE</h1>
 <h3>Enter the distance to your destination in MGLT and get valuable information about how many stops you will have to do to get provisions in every starship there is!</h3>
-<div>
-    <input type="number" placeholder="Travel Distance" />
-    <button type="button">Calculate!</button>
-</div>
-<section>
-  <article>
-    <div>
-      <h2>
-        Name: Millenium Falcon
+<div class="container__item">
+    <input type="number" [(ngModel)]="distance" class="form__field" placeholder="Travel Distance" />
+    <button type="button" (click)="getSpaceshipsAndPopulateCards(distance)" class="btn btn--primary btn--inside uppercase">Calculate!</button>
+</div> 
+<section class="card-container">
+  <article *ngFor="let spaceship of spaceships" class="c-card">
+    <div class="c-card__body">
+      <h2 class="c-card__title">
+        Name: {{spaceship.name}}
       </h2>
-      <p>
-        Model: ShipModel
+      <p class="c-card__subtitle">
+        Model: {{spaceship.model}}
       </p>
       
-      <p>
-        stops: 999 
+      <p class="c-card__intro">
+        stops: {{spaceship.stops}} 
       </p>
+      
     </div>
   </article>
 </section>
