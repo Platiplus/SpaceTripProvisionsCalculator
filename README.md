@@ -11,6 +11,10 @@ Use o comando `npm run skywalker` para rodar o servidor de desenvolvimento. Ele 
 
 Use o comando `npm run yoda` para compilar o projeto. Os artefatos da build serão encontradas na pasta `dist/`.
 
+## Testes
+
+Use o comando `npm run padawan` para executar os testes unitários via [Karma](https://karma-runner.github.io).
+
 ## Pré-requisitos
 
 Você deve instalar em sua máquina as dependências abaixo: 

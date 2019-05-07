@@ -10,7 +10,8 @@
     "e2e": "ng e2e",
     "skywalker": "ng serve",
     "yoda": "ng build --aot --prod",
-    "deathstar": "npm install"
+    "deathstar": "npm install",
+    "padawan": "ng test"
   },
   "private": true,
   "dependencies": {
