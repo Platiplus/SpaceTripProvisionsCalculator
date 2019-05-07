@@ -25,7 +25,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     HttpClientModule,
     NgxSpinnerModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({preventDuplicates: true}),
     BrowserAnimationsModule
   ],
   providers: [],

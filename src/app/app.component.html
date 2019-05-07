@@ -1,11 +1,15 @@
+<!-- App structure -->
 <section [ngClass] = "{'aligner_before_search': !searched, 'aligner_after_search': searched  }">
   <div class="aligner-item">
+    <!-- Logo -->
     <stp-logo></stp-logo>
+    <!-- Search -->
     <stp-search (onSearch)="spaceships = $event; searched = true"></stp-search>
   </div>
 </section>
 
 <section class="card-container">
+  <!-- Cards -->
   <stp-card *ngFor="let spaceship of spaceships" [spaceship]="spaceship">
   </stp-card>
 </section>

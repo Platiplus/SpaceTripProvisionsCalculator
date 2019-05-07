@@ -1,3 +1,4 @@
+//Starship model
 export interface Starship {
         name: string,
         model: string,
