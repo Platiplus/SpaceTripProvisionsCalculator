@@ -16,9 +16,10 @@
 .aligner_after_search {
   display: flex;
   align-items: center;
-  min-height: 35vh;
+  min-height: 25vh;
   justify-content: center;
   transition: 0.8s ease-in-out;
+  margin-top: 25px;
 }
 
 .aligner_after_search-add {
