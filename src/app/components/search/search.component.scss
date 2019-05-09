@@ -27,7 +27,8 @@
 	transition: all 200ms ease-in;
 		
 		&:hover {
-			background: darken($primary-color, 10%);
+      background: darken($primary-color, 10%);
+      cursor: pointer;
 		}
 		
 		&:active {
